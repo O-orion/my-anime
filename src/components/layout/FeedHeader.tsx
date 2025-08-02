@@ -26,9 +26,13 @@ const FeedHeader = ({ activeTab, setActiveTab }: FeedHeaderProps) => {
                     className={ activeTab === "following" ? "btn-glow":""}
                     >
                         Seguindo
+
                     </Button>
                 </div>
             </div>
+            <p className="text-muted-foreground">
+                Descubra os melhores post da comunidade anime
+            </p>
         </div>
     )
 }
