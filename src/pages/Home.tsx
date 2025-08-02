@@ -1,4 +1,5 @@
-import posts from "@/data/animes.json";
+import FeedHeader from "@/components/layout/FeedHeader";
+import postsData from "@/data/animes.json";
 import { useEffect, useState } from "react";
 
 const Home = () => {
@@ -7,12 +8,14 @@ const Home = () => {
     const [activeTab, setActiveTab] = useState<"foryou" | "following">("foryou")
 
     useEffect(() => {
-        setPosts(posts)
-    }, posts)
+        setPosts(postsData.posts)
+    }, [])
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <h1>Olá</h1>
+            <div className="lg:col-span-8">
+                <FeedHeader activeTab={activeTab} setActiveTab={setActiveTab} />
+            </div>
         </div>
     )
 
