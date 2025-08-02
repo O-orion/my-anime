@@ -1,7 +1,8 @@
-import { Bell, Home, Play, Plus, Search, User, Users } from 'lucide-react'
+import { Bell, Home, Menu, Play, Plus, Search, User, Users, X } from 'lucide-react'
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from '../common/button';
+import { Sheet, SheetContent, SheetTrigger } from '../common/sheet';
 
 const Header = () => {
 
@@ -23,7 +24,7 @@ const Header = () => {
     return (
         <header className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md">
             <div className="container mx-auto px-4">
-                <div className="flex-h-16 items-center justify-between">
+                <div className="flex h-16 items-center justify-between">
                     <Link to="/"  className="flex items-center space-x-2"  >
                         <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
                             <span className="text-primary-foreground font-bold text-sm">AC</span>
@@ -58,8 +59,59 @@ const Header = () => {
                             </Button>
                         </Link>
 
-
-                        
+                        <Sheet open={isMobileOpen} onOpenChange={setIsMobileMenuOpen} >
+                            <SheetTrigger asChild>
+                                <Button variant='ghost' size='sm' className='md:hidden' >
+                                    <Menu className='h-5 w-5' />
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side='right' className='w-72' >
+                                <div className="flex flex-col h-full">
+                                    <div className="flex items-center justify-between pb-6">
+                                        <span className="text-lg font-bold text-gradient">
+                                            My-Anime
+                                        </span>
+                                        <Button 
+                                        variant='ghost'
+                                        size='sm'
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            <X className='h-5 w-5' />
+                                        </Button>
+                                    </div>
+                                    <nav className="flex flex-col space-y-2">
+                                        {
+                                            navigation.map((item) => (
+                                                <Link
+                                                to={item.href}
+                                                key={item.name}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                                className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                                                    isActive(item.href)
+                                                    ? "bg-primary/10 text-primary"
+                                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                                                }`}
+                                                >
+                                                    <item.icon className='w-5 w-5' />
+                                                    <span className="font-medium">{item.name}</span>
+                                                </Link>
+                                            ))
+                                        }
+                                    </nav>
+                                    <div className="mt-auto pt-6">
+                                        <Link
+                                        to='/create'
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        >
+                                            <Button className='w-full btn-hero' >
+                                                <Plus className='h-4 w-4 mr-2' />
+                                                Criar Post
+                                            </Button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </SheetContent>
+                        </Sheet>
 
                     </div>
 
@@ -70,4 +122,4 @@ const Header = () => {
 
 } 
 
-export default Header();
+export default Header;
