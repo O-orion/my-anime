@@ -1,0 +1,101 @@
+{
+    "posts":[
+      {
+        "id": "1",
+        "author": {
+          "name": "Naruto Fan",
+          "username": "narutofan123",
+          "avatar": "/api/placeholder/40/40"
+        },
+        "content": "Acabei de terminar de ver Demon Slayer e estou COMPLETAMENTE impressionado! A animação da Ufotable é simplesmente perfeita. O episódio 19 me fez chorar! 😭",
+        "image": "/api/placeholder/500/300",
+        "hashtags": ["DemonSlayer", "Anime", "Ufotable"],
+        "community": "Demon Slayer",
+        "likes": 1250,
+        "comments": 89,
+        "reposts": 234,
+        "timestamp": "2h",
+        "isLiked": false
+      },
+      {
+        "id": "2",
+        "author": {
+          "name": "Anime Girl",
+          "username": "animegirl",
+          "avatar": "/api/placeholder/40/40"
+        },
+        "content": "Quem mais está ansioso para a nova temporada de Attack on Titan? As teorias estão ficando cada vez mais malucas! 🔥",
+        "hashtags": ["AttackOnTitan", "SNK", "Theory"],
+        "community": "Attack on Titan",
+        "likes": 890,
+        "comments": 156,
+        "reposts": 78,
+        "timestamp": "4h",
+        "isLiked": true
+      },
+      {
+        "id": "3",
+        "author": {
+          "name": "One Piece Lover",
+          "username": "mugiwaracrew",
+          "avatar": "/api/placeholder/40/40"
+        },
+        "content": "Gear 5 do Luffy é literalmente a coisa mais insana que já vi em anime! Oda é um gênio absoluto! O cara conseguiu transformar o protagonista no próprio deus do sol! ☀️",
+        "image": "/api/placeholder/500/400",
+        "hashtags": ["OnePiece", "Gear5", "Luffy", "Oda"],
+        "community": "One Piece",
+        "likes": 2100,
+        "comments": 312,
+        "reposts": 445,
+        "timestamp": "6h",
+        "isLiked": false
+      }
+    ],
+
+    "trendingTopics": [
+        { "name": "DemonSlayer", "posts": "15.2k" },
+        { "name": "JujutsuKaisen", "posts": "12.8k" },
+        { "name": "AttackOnTitan", "posts": "9.1k" },
+        { "name": "OnePiece", "posts": "8.7k" },
+        { "name": "Naruto", "posts": "7.3k" }
+    ],
+
+    "suggestedCommunities": [
+            {
+      "name": "My Hero Academia",
+      "members": "45.2k",
+      "avatar": "/api/placeholder/40/40",
+      "isFollowing": false
+    },
+    {
+      "name": "Jujutsu Kaisen",
+      "members": "38.7k", 
+      "avatar": "/api/placeholder/40/40",
+      "isFollowing": true
+    },
+    {
+      "name": "Chainsaw Man",
+      "members": "32.1k",
+      "avatar": "/api/placeholder/40/40",
+      "isFollowing": false
+    }
+    ],
+
+    "upcomingReleases": [
+        {
+            "title": "Demon Slayer S4",
+            "date": "2024-03-15",
+            "episode": "EP 1"
+        },
+        {
+            "title": "Jujutsu Kaisen S3",
+            "date": "2024-04-08",
+            "episode": "EP 1"
+        },
+        {
+            "title": "Attack on Titan Final",
+            "date": "2024-05-20",
+            "episode": "FINAL"
+        }
+    ]
+}
