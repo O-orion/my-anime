@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AnimeConnect Design System - Inspired by vibrant anime aesthetics */
+
+@layer base {
+  :root {
+    /* Core anime-inspired colors */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Vibrant anime primary - Electric Blue */
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 213 100% 88%;
+
+    /* Anime secondary - Soft Purple */
+    --secondary: 267 83% 58%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted tones */
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    /* Anime accent - Energetic Pink */
+    --accent: 316 73% 69%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 213 94% 68%;
+
+    --radius: 0.5rem;
+
+    /* Anime gradient system */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(215 27.9% 20%));
+
+    /* Anime shadows and glows */
+    --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    --shadow-card: 0 4px 20px -4px hsl(240 10% 0% / 0.3);
+
+    /* Animation system */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .light {
+    /* Light mode anime theme */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 213 94% 68%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 267 83% 58%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 316 73% 69%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 213 94% 68%;
+
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(210 40% 98%));
+    --shadow-card: 0 4px 20px -4px hsl(213 94% 68% / 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Anime-inspired button variants */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-secondary text-primary-foreground 
+           shadow-lg hover:shadow-xl transform hover:scale-105 
+           transition-all duration-300 rounded-lg px-6 py-3 font-semibold;
+  }
+
+  .btn-glow {
+    @apply bg-primary text-primary-foreground shadow-lg 
+           hover:shadow-[0_0_20px_hsl(var(--primary-glow)/0.5)]
+           transition-all duration-300 rounded-lg px-4 py-2;
+  }
+
+  /* Card variants with anime aesthetics */
+  .card-anime {
+    @apply bg-gradient-to-br from-card to-muted/20 
+           border border-border/50 rounded-xl 
+           shadow-[var(--shadow-card)] backdrop-blur-sm;
+  }
+
+  .card-glow {
+    @apply card-anime hover:shadow-[var(--shadow-glow)] 
+           transition-all duration-300 hover:scale-[1.02];
+  }
+
+  /* Anime hover effects */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)];
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-anime::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  .scrollbar-anime::-webkit-scrollbar-track {
+    @apply bg-muted/20 rounded-full;
+  }
+
+  .scrollbar-anime::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-primary to-secondary rounded-full;
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+}
