@@ -1,7 +1,7 @@
 import posts from "@/data/animes.json";
 import { useEffect, useState } from "react";
 
-const Index = () => {
+const Home = () => {
 
     const [posts, setPosts] = useState([]);
     const [activeTab, setActiveTab] = useState<"foryou" | "following">("foryou")
@@ -12,10 +12,10 @@ const Index = () => {
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            
+            <h1>Olá</h1>
         </div>
     )
 
 }
 
-export default Index;
+export default Home;
