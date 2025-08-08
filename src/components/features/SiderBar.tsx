@@ -1,4 +1,4 @@
-import { TrendingUp, Users } from "lucide-react";
+import { Calendar, TrendingUp, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../common/Card";
 import Badge from "../common/Badger";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
@@ -9,9 +9,11 @@ interface SiderBarProps {
     trendings: any[];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     communities: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    upcoming: any[];
 }
 
-const SiderBar = ({ trendings, communities }: SiderBarProps) => {
+const SiderBar = ({ trendings, communities, upcoming }: SiderBarProps) => {
 
     return (
         <div className="lg:col-span-4 space-y-6">
@@ -75,10 +77,39 @@ const SiderBar = ({ trendings, communities }: SiderBarProps) => {
                 </CardContent>
             </Card>
 
+            <Card className="card-anime" >
+                    <CardHeader className="pb-3" >
+                        <CardTitle className="flex items-center space-x-2 text-lg" >
+                            <Calendar className="h-5 w-5 text-secondary" />
+                            <span>Próximos Lançamentos</span>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3" >
+                        {
+                            upcoming.map((release) => (
+                                <div
+                                key={release.title}
+                                className="p-3 rounded-lg bg-gradient-card border border-border/50 hover:shadow-glow transition-all durantion-300 "
+                                >
+                                    <div className="flex items-center justify-between">
+                                        <div>
+                                            <p className="font-medium text-sm">{release.title}</p>
+                                            <p className="text-xs text-muted-foreground">{release.date}</p>
+                                        </div>
+                                        <Badge variant="outline" className="text-xs"  >
+                                            {release.episode}
+                                        </Badge>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </CardContent>
+            </Card>
+
             
-
-
         </div>
     );
 
 }
+
+export default SiderBar
