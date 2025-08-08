@@ -42,7 +42,7 @@ const PostCard = ({ post }: PostCardProps) => {
     }
 
     return (
-        <div className="card-anime p-6 hover:shadow-glow transition-all duration-300">
+        <div className="card-anime mt-4 p-6 hover:shadow-glow transition-all duration-300">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-3">
               <Avatar className="h-10 w-10 ring-2 ring-primary/20">
@@ -88,7 +88,7 @@ const PostCard = ({ post }: PostCardProps) => {
                   <div className="flex flex-wrap gap2">
                     {
                       post.hashtags.map((tag,index) => (
-                        <span className="text-primary hover:text-accent cursor-pointe transition-colors text-sm">
+                        <span className="text-primary mr-2 hover:text-accent cursor-pointe transition-colors text-sm">
                           #{tag}
                         </span>
                       ))
@@ -119,6 +119,7 @@ const PostCard = ({ post }: PostCardProps) => {
                   size="sm"
                   className="text-muted-foreground hover:text-primary transition-colors" >
                     <MessageCircle className="h-4 w-4 mr-1"  />
+                    <span>50</span>
                   </Button>
 
                   <Button
