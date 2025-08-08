@@ -1,6 +1,7 @@
 import { useState } from "react"
 import FeedHeader from "../layout/FeedHeader"
 import PostCard from "../layout/PostCard"
+import { Button } from "../common/button"
 
 interface FeedMainProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,6 +19,15 @@ const FeedMain = ({ posts }: FeedMainProps) => {
                     <PostCard key={post.id} post={post} />
                 ))
             }
+
+            <div className="text-center mt-8">
+                <Button
+                variant="outline"
+                className="hover-lift"
+                >
+                    Carregar mais posts
+                </Button>
+            </div>
         </div>
     )
 
