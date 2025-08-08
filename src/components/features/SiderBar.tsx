@@ -1,4 +1,4 @@
-import { Calendar, TrendingUp, Users } from "lucide-react";
+import { Calendar, Star, TrendingUp, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../common/Card";
 import Badge from "../common/Badger";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
@@ -104,6 +104,38 @@ const SiderBar = ({ trendings, communities, upcoming }: SiderBarProps) => {
                             ))
                         }
                     </CardContent>
+            </Card>
+
+            <Card className="card-anime" >
+                <CardHeader className="pb-3" >
+                    <CardTitle className="flex items-center space-x-2 text-lg" >
+                        <Star className="h-5 w-5 text-accent" />
+                        <span>Usuários Populares</span>
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3" >
+                                    {["OtakuMaster", "AnimeLover", "MangaReader"].map((username, index) => (
+              <div
+                key={username}
+                className="flex items-center justify-between"
+              >
+                <div className="flex items-center space-x-3">
+                  <Avatar className="h-8 w-8">
+                    <AvatarFallback className="bg-gradient-accent text-accent-foreground text-xs">
+                      {username.charAt(0)}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-medium text-sm">@{username}</p>
+                    <p className="text-xs text-muted-foreground">{(index + 1) * 1200} seguidores</p>
+                  </div>
+                </div>
+                <Button size="sm" variant="outline" className="hover-lift">
+                  Seguir
+                </Button>
+              </div>
+            ))}
+                </CardContent>
             </Card>
 
             
