@@ -1,5 +1,6 @@
 import { useState } from "react"
 import FeedHeader from "../layout/FeedHeader"
+import PostCard from "../layout/PostCard"
 
 interface FeedMainProps {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,6 +13,11 @@ const FeedMain = ({ posts }: FeedMainProps) => {
     return (
         <div className="lg:col-span-8">
             <FeedHeader activeTab={activeTab} setActiveTab={setActiveTab} />
+            {
+                posts.map((post) => (
+                    <PostCard key={post.id} post={post} />
+                ))
+            }
         </div>
     )
 
