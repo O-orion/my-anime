@@ -1,7 +1,7 @@
 import { Calendar, Star, TrendingUp, Users } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "../common/Card";
 import Badge from "../common/Badger";
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "../common/Avatar";
 import { Button } from "../common/button";
 
 interface SiderBarProps {
@@ -51,14 +51,14 @@ const SiderBar = ({ trendings, communities, upcoming }: SiderBarProps) => {
                     {
                         communities.map((comunity) => (
                             <div key={comunity.name} className="flex items-center justify-between" >
-                                <div className="flex-items space-x-3">
-                                    <Avatar className="h-8 w-8" >
+                                <div className="flex items-center space-x-2">
+                                    <Avatar className="h-12 w-12  " >
                                         <AvatarImage  src={comunity.avatar} />
                                         <AvatarFallback className="bg-gradient-primary text-primary-foreground text-xs">
                                             {comunity.name.charAt(0)}
                                         </AvatarFallback>
                                     </Avatar>
-                                    <div>
+                                    <div className="">
                                         <p className="font-medium text-sm">{comunity.name}</p>
                                         <p className="text-sx text-muted-foreground">{comunity.members} membros</p>
                                     </div>
@@ -120,7 +120,7 @@ const SiderBar = ({ trendings, communities, upcoming }: SiderBarProps) => {
                 className="flex items-center justify-between"
               >
                 <div className="flex items-center space-x-3">
-                  <Avatar className="h-8 w-8">
+                  <Avatar className="h-2 w-2 ring-2 ring-primary/20">
                     <AvatarFallback className="bg-gradient-accent text-accent-foreground text-xs">
                       {username.charAt(0)}
                     </AvatarFallback>
