@@ -1,0 +1,84 @@
+import { TrendingUp, Users } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "../common/Card";
+import Badge from "../common/Badger";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import { Button } from "../common/button";
+
+interface SiderBarProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    trendings: any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    communities: any[];
+}
+
+const SiderBar = ({ trendings, communities }: SiderBarProps) => {
+
+    return (
+        <div className="lg:col-span-4 space-y-6">
+            <Card className="card-anime" >
+                <CardHeader className="pb-3" >
+                    <CardTitle className="flex items-center space-x-2 text-lg" >
+                        <TrendingUp className="h-5 w-5 text-accent" />
+                        <span>Tendências</span>
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3" >
+                    {
+                        trendings.map((topic, index) => (
+                            <div key={index} className="flex items-center justify-between p-2 rounded-lg hover:bg-muted/50 cursor-pointer transition-colors">
+                                <div>
+                                    <p className="font-medium text-foreground">#{topic.name}</p>
+                                    <p className="text-sm text-muted-foreground">{topic.post} posts</p>
+                                </div>
+                                <Badge variant="secondary" className="text-xs" >
+                                    {index + 1}
+                                </Badge>
+                            </div>
+                        ))}
+                </CardContent>
+            </Card>
+
+            <Card className="card-anime" >
+                <CardHeader className="pb-3" >
+                    <CardTitle className="flex items-center space-x-2 text-lg" >
+                        <Users className="h-5 w-5 text-primary" />
+                        <span>Comunidades Sugeridas</span>
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4" >
+                    {
+                        communities.map((comunity) => (
+                            <div key={comunity.name} className="flex items-center justify-between" >
+                                <div className="flex-items space-x-3">
+                                    <Avatar className="h-8 w-8" >
+                                        <AvatarImage  src={comunity.avatar} />
+                                        <AvatarFallback className="bg-gradient-primary text-primary-foreground text-xs">
+                                            {comunity.name.charAt(0)}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                    <div>
+                                        <p className="font-medium text-sm">{comunity.name}</p>
+                                        <p className="text-sx text-muted-foreground">{comunity.members} membros</p>
+                                    </div>
+                                </div>
+                                    <Button 
+                                    size="sm" 
+                                    className={comunity.isFollowing ? "btn-glow":""}
+                                    variant={comunity.isFollowing ? "secondary":"default"} >
+                                        {
+                                            comunity.isFollowing ? "Seguindo" : "Seguir"
+                                        }
+                                    </Button>
+                            </div>
+                        ))                       
+                    }
+                </CardContent>
+            </Card>
+
+            
+
+
+        </div>
+    );
+
+}
